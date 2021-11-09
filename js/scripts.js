@@ -15,8 +15,49 @@ $(document).ready(function () {
 
     handlePreloader();
 
+    //                 <-- NAVBAR
+    window.onscroll = function () { myFunction() };
 
-    
+    // Get the navbar
+    var navbar = document.getElementById("lower-header");
+
+    // Get the offset position of the navbar
+    var sticky = navbar.offsetTop;
+
+    // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("active")
+        } else {
+            navbar.classList.remove("active");
+        }
+    }
+    //                   NAVBAR -->
+
+
+    // Category MENU
+    $("#category-btn").on("click", () => {
+        $(".overlay").toggleClass("active");
+    })
+
+
+    $(".category-mobile").on("click", () => {
+        $(".category-mobile").toggleClass("active");
+        $(".mobile-overlay").toggleClass("active");
+    })
+
+    $(".categories li").on("click", () => {
+        $(".subcategories").addClass("active");
+    })
+    $(".back").on("click", () => {
+        $(".subcategories").removeClass("active");
+    })
+
+
+
+
+
+
 
 
     // $('.minus').click(function () {
@@ -168,7 +209,7 @@ $(document).ready(function () {
         $(this).find('i').toggleClass('active');
         return false;
     });
-    
+
 
     $('.category-card').on('click', function () {
         $('.category-card').removeClass('active');
@@ -223,12 +264,6 @@ $(document).ready(function () {
 
 
 
-
-
-
-
-
-
 });
 
 
@@ -246,4 +281,5 @@ function PageScroll() {
 
     });
 }
+
 

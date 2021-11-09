@@ -4496,8 +4496,7 @@ textarea.form-control-lg {
   list-style: none;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0.25rem;
+
 }
 .dropdown-menu[data-bs-popper] {
   top: 100%;
@@ -15443,7 +15442,7 @@ select.sort {
   border: 0;
   background-color: #f6f6f6;
   border-radius: 7px;
-  width: 350px;
+  width: 600px;
   height: 45px;
 }
 .header-wrapper .form-group i {
@@ -15486,6 +15485,15 @@ select.sort {
   font-size: 10px;
 }
 
+.lower-header.active{
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  position: fixed;
+  width: 91%;
+}
+
+
 .lower-header.bg-invert .nav-item .nav-link.dropdown-toggle:after,
 .lower-header.bg-invert .nav-item .nav-link,
 .lower-header.bg-invert .dropdown-item,
@@ -15493,11 +15501,11 @@ select.sort {
 .lower-header.bg-invert .dropdown-toggle i {
   color: #fff;
 }
-.lower-header .dropdown-toggle-white:after {
+.lower-header .dropdown-toggle-white:after{
   color: #fff !important;
   right: 15px !important;
 }
-.lower-header .dropdown-toggle {
+.lower-header .dropdown-toggle{
   line-height: 38px;
   width: 100%;
   display: block;
@@ -15507,24 +15515,23 @@ select.sort {
   font-weight: 600;
   color: #555;
 }
-.lower-header .dropdown-toggle i {
+.lower-header .dropdown-toggle i{
   margin-right: 10px;
   font-size: 22px;
   color: #999;
   position: relative;
   top: 5px;
 }
-.lower-header .dropdown-toggle:after {
+.lower-header .dropdown-toggle:after{
   right: 0px;
   position: absolute;
-  top: 8px;
   border: 0 !important;
   font-family: "themify";
   content: "";
   color: #999;
   font-size: 10px !important;
 }
-.lower-header .dropdown-item {
+.lower-header .dropdown-item{
   line-height: 30px;
   font-size: 13px;
   font-weight: 500 !important;
@@ -15532,11 +15539,12 @@ select.sort {
   position: relative;
   transition: all 0.4s ease;
 }
-.lower-header .dropdown-item:active, .lower-header .dropdown-item:focus, .lower-header .dropdown-item:hover {
+.lower-header .dropdown-item:active, .lower-header .dropdown-item:focus, .lower-header .dropdown-item:hover
+{
   color: var(--theme-color);
   background-color: transparent;
 }
-.lower-header .dropdown-item span {
+.lower-header .dropdown-item span{
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -16756,7 +16764,6 @@ select.sort {
 
 .addToCart{
   position: relative;
-
   left: 0;
   /* transform: translateX(-50%); */
   color: var(--theme-color);
@@ -16822,4 +16829,232 @@ select.sort {
 }
 .wishlist-btn i.active:before{
   content: '\ead5';
+}
+
+
+.lower-header{
+  z-index: 100;
+  height: 75px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+}
+
+.overlay{
+  z-index: 1000;
+  position: absolute;
+  width: 100%;
+  height: 0;
+  top: 74.9px;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  background: #fff;
+}
+.overlay.active{
+  height: 100vh;
+}
+.my-menu li:hover{
+  background: #1ca301;
+}
+.my-menu li:hover > *, .my-menu li:hover > a::after{
+  color: white !important;
+  transition: none !important;
+}
+.my-menu .menu{
+  padding: 0 10%;
+}
+.my-menu li{
+  padding: 0 20px;
+}
+.my-menu, .lower-menu{
+  width: auto !important;
+  height: auto !important;
+}
+.my-menu{
+  border-right: 1px solid #1ca3012f;
+}
+.lower-menu{
+  border-right: 1px solid #1ca3012f;
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0px;
+}
+.lower-menu .lower-menu{
+  top: 0px;
+  left: 100%;
+}
+.menu ul li:hover > ul {
+  display: block;
+}
+
+
+/* TABLET AND MOBILE */
+
+.header-menu-mob .text-end i{
+  font-size: 30px;
+  margin-top: 5px;
+  color: #00000080;
+  transition: 0.5s color;
+}
+.category-mobile.active i{
+  color: #9365ff;
+}
+.header-menu-mob .text-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-menu-mob .text-center a{
+  border-bottom: 2px solid #9365ff4b;
+  font-weight: 600;
+  color: #9365ff;
+  text-decoration: none;
+}
+.my-search{
+  display: none;
+}
+@media (max-width:1200px) {
+  .my-search{
+    display: flex;
+  }
+}
+.my-search .form-group{
+  width: 100%;
+}
+.my-search input{
+  border: 1px solid #6b6b6b57;
+  border-radius: 7px;
+}
+.my-search i{
+  z-index: 2;
+  position: absolute;
+  top: 10px !important;
+  left: 28px !important;
+}
+
+
+/* Mobile category menu */
+
+.mobile-overlay{
+  background: #fff;
+  z-index: 1000;
+  display: flex;
+  border-top: 1px solid #9365ff;
+  width: 100%;
+  height: calc(100vh - 69.67px);
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  transform: translateX(100%);
+  transition: 0.3s ease-in-out;
+  visibility: hidden;
+}
+.mobile-overlay.active{
+  transform: translateX(0);
+  visibility: visible;
+}
+
+@media (min-width:990px) {
+  .mobile-overlay{
+    display: none;
+  }
+}
+
+.mobile-menu{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.categories{
+  width: 100%;
+  height: calc(100vh - 69.67px);
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.categories > li{
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  margin-bottom: 25px;
+}
+
+.categories li i{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: #b696ff33;
+  border-radius: 50%;
+  font-size: 25px;
+  color: #9365ff;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+.categories li a{
+  color: black;
+  font-weight: 500;
+}
+.categories .category-name{
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.categories .category-name span{
+  font-weight: 600;
+  opacity: 0.6;
+  width: 50vw;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  white-space: nowrap;
+  font-size: 10px;
+}
+.categories .category-name{
+  line-height: 20px;
+}
+.subcategories{
+  background: #fff;
+  height: 100vh;
+  width: 100%;
+  transform: translateX(150%);
+  position: absolute;
+  left: 0;
+  transition: 0.5s ease;
+}
+.subcategories.active{
+  transform: translateX(0);
+}
+.sub-header{
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.subcategories .categories{
+  height: 100vh;
+  overflow: auto;
+}
+.subcategories .categories li{
+  line-height: 20px;
+}
+.sub-header .back{
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sub-header .back i{
+  font-size: 25px;
+  color: #9365ff;
+}
+.parent-name{
+  color: #9365ff;
+  font-size: 20px;
+  width: 90%;
 }
